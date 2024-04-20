@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Корзина</title>
+<link rel="stylesheet" href={{url_for('static', filename='css/productDescription.css')}} />
+<link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css')}} />
+</head>
+
+<body>
+<div id="title">
+
+
+	{% if not loggedIn %}
+	<div id="signInButton">
+		<a class="link" href="/login">Войти</a>
+	</div>
+	{% else %}
+	<div class="dropdown">
+		<button class="dropbtn">Привет, <br>{{firstName}}</button>
+		<div class="dropdown-content">
+
+			<hr>
+			<a href="/logout">Sign Out</a>
+		</div>
+	</div>
+	{% endif %}
+	<div id="kart">
+		<a class="link" href="/cart">
+			<img src={{url_for('static', filename='images/shoppingCart.png')}} id="cartIcon" />
+			Корзина {{noOfItems}} штук
+		</a>
+	</div>
+</div>
+<div id="display">
+	<div id="productName">
+		<h1>{{data[1]}}</h1>
+	</div>
+	<div>
+		<img src={{url_for('static', filename='uploads/'+data[4]) }} id="productImage"/>
+	</div>
+
+	<div id="productDescription">
+		<h2>Описание</h2>
+		<table id="descriptionTable">
+			<tr>
+				<td>Наименование</td>
+				<td>{{data[1]}}</td>
+			</tr>
+			<tr>
+				<td>Цена</td>
+				<td>{{data[2]}} ₽</td>
+			</tr>
+
+		</table>
+		<h2>Описание</h2>
+		<p>{{data[3]}}</p>
+	</div>
+	<div id="addToCart">
+		<a href="/addToCart?productId={{request.args.get('productId')}}">Добавить в корзину</a>
+	</div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Welcome</title>
+
+<link rel="stylesheet" href={{ url_for("static", filename='css/home.css') }} />
+<link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css') }} />
+</head>
+<!--<body style="background-color:#EFD1A4">-->
+<body>
+<div id="title">
+	<a href="/">
+		<img id="logo" src= {{ url_for('static', filename='images/logo.png') }} />
+	</a>
+<!--	<form>-->
+<!--		<input id="searchBox" type="text" name="searchQuery">-->
+<!--		<input id="searchButton" type="submit" value="Search">-->
+<!--	</form>-->
+
+	{% if not loggedIn %}
+	<div id="signInButton">
+		<a class="link" href="/login">Sign In</a>
+	</div>
+	{% else %}
+	<div class="dropdown">
+		<button class="dropbtn">Hello, <br>{{firstName}}</button>
+
+			<hr>
+			<a href="/logout">Выйти</a>
+		</div>
+	</div>
+	{% endif %}
+	<div id="kart">
+		<a class="link" href="/cart">
+			<img src={{url_for('static', filename='images/shoppingCart.png')}} id="cartIcon" />
+			CART {{noOfItems}}
+		</a>
+	</div>
+</div>
+<div class="display">
+	<div class="displayCategory">
+		<h2>Категории товаров </h2>
+		<ul>
+			{% for row in categoryData %}
+			<li><a href="/displayCategory?categoryId={{row[0]}}">{{row[1]}}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div>
+		<h2>Товары</h2>
+		{% for data in itemData%}
+		<table>
+			<tr id="productName">
+				{% for row in data %}
+				<td>
+					{{row[1]}}
+				</td>
+				{% endfor %}
+			</tr>
+			<tr id="productImage">
+				{% for row in data %}
+				<td>
+					<a href="/productDescription?productId={{row[0]}}">
+						<img src={{ url_for('static', filename='uploads/' + row[4]) }} id="itemImage" />
+					</a>
+				</td>
+				{% endfor %}
+			</tr>
+			<tr id="productPrice">
+				{% for row in data %}
+				<td>
+					{{row[2]}}₽
+				</td>
+				{% endfor %}
+			</tr>
+		</table>
+		{% endfor %}
+	</div>
+</div>
+<p>Количество конфет и трюфелей в коробке дополнительно уточняется по номеру 89057844811</p>
+</body>
+</html>
+
+<style>
+section {position: absolute; left: 0; right: 0; top: 0; bottom: 0; overflow: hidden;}
+img {max-width: 100%;}
+</style>
+
+<!--<section>-->
+<!--<h2>Title</h2>-->
+<!--<img src="http://hdwallpaper-hd.com/wp-content/uploads/tumblr_static_bugs_wallpapers_298.jpg" alt="a">-->
+<!--</section>-->

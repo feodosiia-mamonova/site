@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Регистрация</title>
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/validateForm.js') }}">
+</script>
+</head>
+<body style="background-color:#EFD1A4">
+</body>
+<h1 align="center">Регистрация</h1>
+<form action="/register" method="POST" onsubmit="return validate()" align="center">
+    <p>Почта: <input type="email" name="email"></p>
+
+    <P>Пароль: <input type="password" name="password" id="password" required></p>
+
+    <p>Повторите пароль: <input type="password" name="cpassword" id="cpassword"></p>
+
+    <p>Имя: <input type="text" name="firstName"></p>
+    <p>Фамилия: <input type="text" name="lastName"></p>
+    <p>Город: <input type="text" name="city"></p>
+    <p>Страна: <input type="text" name="country"></p>
+    <p>Телефон: <input type="text" name="phone"></p>
+
+    <p><input type="submit" value="Зарегестрироваться"></p>
+
+    <a href="/login">Войти здесь</a>
+</form>
+</body>
+</html>
+
+
+
+<style type="text/css">
+
+    @import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+/* End Fonts */
+/* Start Global rules */
+* {
+    padding: 8;
+    margin:4;
+    box-sizing: border-box;
+    border-radius: 10px 10px 10px 10px;
+}
+/* End Global rules */
+
+/* Start body rules */
+body {
+    background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+background-image: linear-gradient(to top, #E0564D 0%, #EFB75D 100%);
+background-attachment: fixed;
+  background-repeat: no-repeat;
+
+    font-family: 'Vibur', cursive;
+/*   the main font */
+    font-family: 'Abel', sans-serif;
+opacity: .95;
+/* background-image: linear-gradient(to top, #E0564D 0%, #EFB75D 100%); */
+}
+
+
+
+</style>

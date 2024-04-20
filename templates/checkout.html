@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+	
+<head>
+	<title>Заказ</title>
+</head>
+<!--<body style="background-color:#EFD1A4">-->
+<body>
+	<p>Ваш заказ успешно выполнен, спасибо!
+</p>
+	<div id="cartItems">
+	<h2>Товары, которые вы заказали</h2>
+	<div id="tableItems">
+		{% for row in products %}
+		<div>
+			<hr id="seperator">
+			<div id="itemName">
+				<span id="itemNameTag">{{row[1]}}</span><br>
+			</div>
+			<div id="itemPrice">
+				{{row[2]}}₽
+			</div>
+		</div>
+		{% endfor %}
+		<hr id="seperator">
+		<div id="total">
+			<span id="subtotal">Общий размер вашего заказа</span> : {{totalPrice}}₽
+			<span if="deliverydate"></span>
+		</div>
+		<div><a href="/">Вернуться на главную страницу</a></div>
+	</div>
+</div>
+</body>
+</html>

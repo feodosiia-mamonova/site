@@ -1,0 +1,18 @@
+<style>
+	.easynetshop-gotocart, /* Кнопка перехода в корзину */
+	.easynetshop-goorder, /* Кнопка возврата к заказу */
+	.easynetshop-doorder /* Кнопка отправки заказа */
+	{
+    	background-color: #ffdb26; /* Цвет фона */
+    	border-color: #c3a820; /* Цвет границы */
+	}
+</style>
+<style>
+	.easynetshop-gotocart:hover, .easynetshop-gotocart:active, /* Кнопка перехода в корзину (при наведении) */
+	.easynetshop-goorder:hover, .easynetshop-goorder:active, /* Кнопка возврата к заказу (при наведении) */
+	.easynetshop-doorder:hover, .easynetshop-doorder:active  /* Кнопка отправки заказа (при наведении) */
+	{
+    	background-color: #ffdb26; /* Цвет фона */
+    	border-color: #c3a820; /* Цвет границы */
+	}
+</style>
